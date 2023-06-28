@@ -1,10 +1,20 @@
 import React from "react";
-
+import { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Person from "./Person";
 import Menu from "./Menu";
 import { FiLogOut as LogOutIcon } from "react-icons/fi";
 
+import GeneralContext from "../../context/GeneralContext";
+
 function SideBar({ menuItems }) {
+  const navigate = useNavigate();
+  const { isLogged, setIsLogged } = useContext(GeneralContext);
+
+  useEffect(() => {
+    if (!isLogged) navigate("/login");
+  }, [isLogged]);
+
   return (
     <div>
       <div className="border-l-4 border-bgOrange mx-12 font-bold text-xl mt-6">
@@ -17,7 +27,11 @@ function SideBar({ menuItems }) {
         <Menu menuItems={menuItems} />
       </div>
       <div className="mt-32">
-        <button>
+        <button
+          onClick={() => {
+            setIsLogged(false);
+          }}
+        >
           <div className="flex gap-4 items-center">
             Logout <LogOutIcon />
           </div>
