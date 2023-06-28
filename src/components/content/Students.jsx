@@ -10,7 +10,6 @@ import Student from "./Student";
 
 function Students() {
   const [formVisible, setFormVisible] = useState(false);
-  const [editVisible, setEditVisible] = useState(false);
   const [students, setStudents] = useState();
   const [studentToEdit, setStudentToEdit] = useState();
   const [studentToEditIndex, setStudentToEditIndex] = useState();
