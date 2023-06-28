@@ -129,7 +129,13 @@ function Student({ student, i, setStudents }) {
             >
               {edit ? <SaveIcon /> : <EditIcon />}
             </button>
-            <button>
+            <button
+              onClick={() => {
+                setStudents((prevArray) =>
+                  prevArray.filter((item, index) => i !== index)
+                );
+              }}
+            >
               <DeleteIcon />
             </button>
           </div>
