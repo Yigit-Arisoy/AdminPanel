@@ -127,7 +127,7 @@ function Students() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => {
-                  page = page - 1;
+                  page = page - 1 < 0 ? page : page - 1;
                   navigateNewPage();
                 }}
               >

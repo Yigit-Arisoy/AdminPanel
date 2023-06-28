@@ -110,6 +110,7 @@ function Student({ student, i, setStudents }) {
                   setStudents((prev) => {
                     let newData = [...prev];
                     newData[i] = {
+                      ...newData[i],
                       firstName,
                       lastName,
                       email,
